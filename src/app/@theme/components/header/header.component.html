@@ -1,6 +1,4 @@
-<div class="header-container"
-     [class.left]="position === 'normal'"
-     [class.right]="position === 'inverse'">
+<div class="header-container left">
   <div class="logo-containter">
     <a (click)="toggleSidebar()" href="#" class="navigation"><i class="nb-menu"></i></a>
     <div class="logo" (click)="goToHome()">ngx-<span>admin</span></div>
@@ -10,10 +8,7 @@
 
 <nb-actions
   size="medium"
-  class="header-container"
-  [class.right]="position === 'normal'"
-  [class.left]="position === 'inverse'">
-  <nb-action icon="nb-grid-b" class="toggle-layout" (click)="toggleSettings()"></nb-action>
+  class="header-container right">
   <nb-action>
     <nb-user [menu]="userMenu" [name]="'John Doe'"></nb-user>
   </nb-action>

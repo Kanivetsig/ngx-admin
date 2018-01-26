@@ -1,0 +1,9 @@
+nb-sidebar .scrollable{
+    padding-top: 0 !important;
+}
+.justify-around{
+    justify-content: space-around !important;
+}
+.nb-theme-cosmic nb-menu .menu-item a{
+    padding-top: 0.675rem !important;
+}
