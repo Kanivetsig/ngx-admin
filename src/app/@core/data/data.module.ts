@@ -1,11 +1,8 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { StateService } from './state.service';
 
-const SERVICES = [
-  StateService,
-];
+const SERVICES = [];
 
 @NgModule({
   imports: [
