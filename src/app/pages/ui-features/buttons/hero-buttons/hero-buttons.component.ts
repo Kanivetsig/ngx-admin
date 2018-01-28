@@ -14,7 +14,6 @@ export class HeroButtonComponent implements OnDestroy {
 
   constructor(private themeService: NbThemeService) {
     this.themeSubscription = this.themeService.getJsTheme().subscribe(theme => {
-      console.log(theme);
       this.themeName = theme.name;
       this.init(theme.variables);
     });
