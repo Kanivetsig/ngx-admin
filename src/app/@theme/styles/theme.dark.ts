@@ -63,10 +63,10 @@ export const DARK_THEME = {
     },
 
     bubbleMap: {
-      titleColor: '#ffffff',
-      areaColor: '#2c2961',
-      areaHoverColor: '#a1a1e5',
-      areaBorderColor: '#654ddb',
+      titleColor: '#f8f9fa',
+      areaColor: '#1f1f27',
+      areaHoverColor: '#32323e',
+      areaBorderColor: '#8a7fff',
     },
 
     echarts: {
