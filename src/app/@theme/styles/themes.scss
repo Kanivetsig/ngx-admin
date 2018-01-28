@@ -3,8 +3,10 @@
 // @nebular out of the box themes
 @import '~@nebular/theme/styles/themes';
 
+@import './custom/dark.scss';
+
 // which themes you what to enable (empty to enable all)
-$nb-enabled-themes: (default, cosmic);
+$nb-enabled-themes: (default, dark);
 
 $nb-themes: nb-register-theme((
  // app wise variables for each theme
@@ -25,3 +27,13 @@ $nb-themes: nb-register-theme((
   font-main: Roboto,
   font-secondary: Exo,
 ), cosmic, cosmic);
+
+$nb-themes: nb-register-theme((
+  // app wise variables for each theme
+  sidebar-header-gap: 2rem,
+  sidebar-header-height: initial,
+  layout-content-width: 1400px,
+
+  font-main: Roboto,
+  font-secondary: Exo,
+), dark, dark);

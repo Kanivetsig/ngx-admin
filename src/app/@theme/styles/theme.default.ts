@@ -64,10 +64,10 @@ export const DEFAULT_THEME = {
     },
 
     bubbleMap: {
-      titleColor: '#484848',
-      areaColor: '#dddddd',
-      areaHoverColor: '#cccccc',
-      areaBorderColor: '#ebeef2',
+      titleColor: '#f8f9fa',
+      areaColor: '#1f1f27',
+      areaHoverColor: '#32323e',
+      areaBorderColor: '#8a7fff',
     },
 
     echarts: {

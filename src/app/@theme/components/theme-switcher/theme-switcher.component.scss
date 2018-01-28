@@ -86,6 +86,9 @@
       @include nb-for-theme(cosmic) {
         @include btn-hero-primary-gradient();
       }
+      @include nb-for-theme(dark) {
+        @include btn-hero-primary-gradient();
+      }
     }
   }
 
