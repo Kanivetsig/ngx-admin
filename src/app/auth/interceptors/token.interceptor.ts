@@ -15,10 +15,8 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     const authService: AbstractAuthService = this._injector.get(AbstractAuthService);
-    console.log("in interceptor");
     if (!authService.isLoggedIn())
       return next.handle(req);
-      console.log("user logged");
 
     let cloned = req.clone({
       setHeaders: {
