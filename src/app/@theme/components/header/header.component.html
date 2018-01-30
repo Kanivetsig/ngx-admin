@@ -10,7 +10,7 @@
   size="medium"
   class="header-container right">
   <nb-action>
-    <nb-user [menu]="userMenu" [name]="'John Doe'"></nb-user>
+    <nb-user [menu]="userMenu" [name]="user.name" (menuClick)="logout()"> </nb-user>
   </nb-action>
   <nb-action class="control-item" disabled icon="nb-notifications"></nb-action>
   <nb-action class="control-item" icon="nb-email"></nb-action>

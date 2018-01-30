@@ -7,3 +7,9 @@ nb-sidebar .scrollable{
 .nb-theme-cosmic nb-menu .menu-item a{
     padding-top: 0.675rem !important;
 }
+.btn{
+    cursor: pointer !important;
+}
+.btn:disabled{
+    cursor: not-allowed !important;
+}

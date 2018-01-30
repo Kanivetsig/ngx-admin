@@ -3,10 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthorizedOnlyGuard } from '../auth/guards/authorized-only.guard';
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
+  canActivate: [AuthorizedOnlyGuard],
+  canActivateChild: [AuthorizedOnlyGuard],
   children: [
     {
       path: 'dashboard',
@@ -18,6 +21,7 @@ const routes: Routes = [{
       pathMatch: 'full',
     },
   ],
+  
 }];
 
 @NgModule({

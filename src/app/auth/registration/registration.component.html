@@ -1,0 +1,44 @@
+<h4 *ngIf="(!loading && !success)">Sign up to ngx-admin</h4>
+<h4 *ngIf="(loading && !success)">Registration in progress...</h4>
+<h4 *ngIf="success">Registration completed</h4>
+
+<div class="alert alert-danger" *ngIf="errors && errors.length > 0">
+    <p>
+        <b>There was following errors</b>
+    </p>
+    <ul class="text-initial mt-1 mb-1">
+        <li *ngFor="let error of errors">{{error}}</li>
+    </ul>
+</div>
+
+<div class="alert alert-success" *ngIf="success">
+    <p>Registration successful. You can now login using these credentials</p>
+    <p>You will be redirected to login page in 5 seconds</p>
+</div>
+
+<div class="m-t">
+    <div class="form-group">
+        <input type="text" class="form-control" name="username" placeholder="Name" required="" [(ngModel)]="registrationModel.username"
+            [disabled]="loading">
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="registrationModel.email" [email]="true"
+            #email="ngModel" [disabled]="loading">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="Password" required="" [(ngModel)]="registrationModel.password"
+            [disabled]="loading">
+    </div>
+
+    <button class="btn btn-hero-primary col-12" (click)="register(email)" [disabled]="loading">Sign up</button>
+    
+    <p class="mt-2 text-muted text-center">
+        <small>Already have an account?</small>
+    </p>
+    <a class="btn btn-sm btn-hero-secondary col-12" routerLink="/auth/login">Sign in</a>
+</div>
+<p class="mt-2 text-center">
+    <small>
+        <b>ngx-admin</b> - {{ currentYear }} &copy;
+    </small>
+</p>

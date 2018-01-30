@@ -45,8 +45,6 @@ export class BasicLayoutComponent  implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.layoutState$.unsubscribe();
-    this.sidebarState$.unsubscribe();
     this.menuClick$.unsubscribe();
   }
 }

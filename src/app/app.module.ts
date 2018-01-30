@@ -14,22 +14,55 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthModule } from './auth/auth.module';
+import { RequestHandler } from './data/request.handler';
+import { UsersProvider } from './data/users.provider';
+import { Repository } from './data/repository';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AuthorizedOnlyGuard } from './auth/guards/authorized-only.guard';
+import { AnonymousOnlyGuard } from './auth/guards/anonymous-only.guard';
+import { BasicAuthService } from './auth/services/basic-auth.service';
+import { AbstractAuthService } from './auth/services/abstract-auth.service';
+import { TokenInterceptor } from './auth/interceptors/token.interceptor';
+import { DemoAuthService } from './auth/services/demo-auth.service';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule,
     AppRoutingModule,
-
+    FormsModule,
+    HttpClientModule,
+    
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
   ],
+  exports:[
+    NgbModule,
+    CoreModule,
+    ThemeModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule
+  ],
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
+    RequestHandler, UsersProvider, Repository,
+    AuthorizedOnlyGuard, AnonymousOnlyGuard,
+    {
+      provide: AbstractAuthService,
+      useClass: DemoAuthService
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
 })
 export class AppModule {

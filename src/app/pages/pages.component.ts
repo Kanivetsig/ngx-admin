@@ -10,7 +10,7 @@ import { MENU_ITEMS } from './pages-menu';
       <router-outlet></router-outlet>
     </ngx-basic-layout>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class PagesComponent {
 

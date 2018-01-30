@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { NbMenuService, NbSidebarService } from '@nebular/theme';
+import { AbstractAuthService } from '../../../auth/services/abstract-auth.service';
+import { UserAuth } from '../../../auth/models/user-auth.model';
 
 @Component({
   selector: 'ngx-header',
@@ -12,25 +14,25 @@ export class HeaderComponent implements OnInit {
 
   @Input() position = 'normal';
 
-  user: any;
+  user: UserAuth;
 
-  userMenu = [{ title: 'Log out', link: '/auth/logout' }];
+  userMenu = [{ title: 'Log out'}];
 
   constructor(private sidebarService: NbSidebarService,
-              private menuService: NbMenuService) {
+              private menuService: NbMenuService,
+              private authService: AbstractAuthService) {
   }
 
   ngOnInit() {
-    
+    this.user = this.authService.user;
+  }
+
+  logout(){
+    this.authService.logOut();
   }
 
   toggleSidebar(): boolean {
     this.sidebarService.toggle(true, 'menu-sidebar');
-    return false;
-  }
-
-  toggleSettings(): boolean {
-    this.sidebarService.toggle(false, 'settings-sidebar');
     return false;
   }
 
