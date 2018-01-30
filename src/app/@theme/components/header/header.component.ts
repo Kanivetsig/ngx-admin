@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { NbMenuService, NbSidebarService } from '@nebular/theme';
+import { NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 import { AbstractAuthService } from '../../../auth/services/abstract-auth.service';
 import { UserAuth } from '../../../auth/models/user-auth.model';
 
@@ -20,7 +20,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
-              private authService: AbstractAuthService) {
+              private authService: AbstractAuthService,
+              private themeService: NbThemeService) {
   }
 
   ngOnInit() {
@@ -28,6 +29,8 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(){
+    //Resetting theme as auth layout works only with default theme
+    this.themeService.changeTheme("default");
     this.authService.logOut();
   }
 
