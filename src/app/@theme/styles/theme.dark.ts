@@ -70,10 +70,10 @@ export const DARK_THEME = {
     },
 
     echarts: {
-      bg: '#3d3780',
+      bg: 'rgb(49, 52, 58)',
       textColor: '#ffffff',
       axisLineColor: '#a1a1e5',
-      splitLineColor: '#342e73',
+      splitLineColor: '#212121',
       itemHoverShadowColor: 'rgba(0, 0, 0, 0.5)',
       tooltipBackgroundColor: '#6a7985',
       areaOpacity: '1',
