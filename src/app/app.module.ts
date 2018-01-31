@@ -67,6 +67,8 @@ import { ToasterConfig } from 'angular2-toaster/src/toaster-config';
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     { provide: ToasterConfig, useValue: TOASTER_CONFIG},
+    { provide: "apiRootUrl", useValue: "/api/"}, //root api url. Used by request.handler
+
     RequestHandler, UsersProvider, Repository,
     AuthorizedOnlyGuard, AnonymousOnlyGuard,
     {

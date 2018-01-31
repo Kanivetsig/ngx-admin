@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Inject } from "@angular/core";
 import { RequestMethod, Request, Response } from "@angular/http";
 import { HttpClient, HttpRequest } from "@angular/common/http";
 
@@ -12,9 +12,9 @@ export class RequestHandler {
     private _baseUrl: string;
     private _http: HttpClient;
 
-    constructor(http: HttpClient) {
+    constructor(http: HttpClient, @Inject("apiRootUrl")apiRootUrl: string) {
         this._http = http;
-        this._baseUrl = "/";
+        this._baseUrl = apiRootUrl;
     }
 
     public get(url: string) {
