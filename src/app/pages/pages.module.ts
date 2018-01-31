@@ -13,7 +13,7 @@ const PAGES_COMPONENTS = [
 @NgModule({
   imports: [
     PagesRoutingModule,
-    ThemeModule,
+    ThemeModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,
