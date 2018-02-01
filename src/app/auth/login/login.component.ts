@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { AbstractAuthService } from '../services/abstract-auth.service';
 import { Router } from '@angular/router';
 
@@ -21,6 +21,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+    if (event.key === "Enter") {
+      this.login();
+    }
   }
 
   public login() {
