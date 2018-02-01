@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+  @HostListener('document:keyup', ['$event']) onKeydownHandler(event: KeyboardEvent) {
     if (event.key === "Enter") {
       this.login();
     }
