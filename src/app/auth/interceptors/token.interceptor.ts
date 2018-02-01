@@ -21,7 +21,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     let cloned = req.clone({
       setHeaders: {
-        token: authService.user.token
+        Authorization: `Bearer ${authService.user.token}`
       }
     });
     
